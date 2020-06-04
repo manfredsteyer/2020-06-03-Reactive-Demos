@@ -30,6 +30,8 @@ export class FlightLookaheadComponent implements OnInit {
         this.control.valueChanges.subscribe(input => {
             this.service.search(input);
         });
+
+        
     }
 
 }

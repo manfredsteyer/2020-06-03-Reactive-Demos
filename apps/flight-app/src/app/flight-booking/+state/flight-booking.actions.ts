@@ -12,4 +12,21 @@ export const flightUpdated = createAction(
 );
 
 
+export const loadFlights = createAction(
+  '[FlightBooking] loadFlights',
+  props<{ from: string, to: string, urgent: boolean }>()
+);
+
+
+export const loadFlightsError = createAction(
+  '[FlightBooking] loadFlightsError',
+  props<{ message: string }>()
+);
+
+
+
+
+
+
+
 

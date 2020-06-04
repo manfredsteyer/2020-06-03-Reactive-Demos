@@ -55,6 +55,7 @@
     "angular-oauth2-oidc": "^8.0.4",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.5.4",
+    "ngrx-etc": "^4.1.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "web-animations-js": "^2.3.2",

@@ -84,8 +84,11 @@ describe('TestComponent', () => {
   }));
 
   it('should search for flights (component)', (done) => {
+
     
     component.control.setValue('Graz');
+
+    // shareReplay(1)
 
     component.flights$.subscribe(flights => {
       expect(flights.length).toBe(2);

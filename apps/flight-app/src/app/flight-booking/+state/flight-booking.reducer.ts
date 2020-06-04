@@ -2,6 +2,8 @@ import { Action, createReducer, on } from '@ngrx/store';
 import { Flight } from '@flight-workspace/flight-api';
 import { flightsLoaded, flightUpdated } from './flight-booking.actions';
 
+import { mutableOn } from 'ngrx-etc';
+
 export const flightBookingFeatureKey = 'flightBooking';
 
 export interface FlightBookingAppState {
@@ -11,26 +13,29 @@ export interface FlightBookingAppState {
 export interface FlightBookingState {
   flights: Flight[];
   stats: object;
+  exclusionList: number[];
 }
 
 export const initialState: FlightBookingState = {
   flights: [],
-  stats: {}
+  stats: {},
+  exclusionList: [4]
 };
 
 const flightBookingReducer = createReducer(
   initialState,
 
-  on(flightsLoaded, (state, action) => {
+  mutableOn(flightsLoaded, (state, action) => {
+    
     const flights = action.flights;
 
     // Mutating --> forbidden!
-    // state.flights = flights;
+    state.flights = flights;
 
-    return { ...state, flights }
+    //return { ...state, flights }
   }),
 
-  on(flightUpdated, (state, action) => {
+  mutableOn(flightUpdated, (state, action) => {
 
     const flight = action.flight;
 
@@ -41,9 +46,9 @@ const flightBookingReducer = createReducer(
     const flights = state.flights.map(f => f.id === flight.id? flight : f);
 
     // Mutating --> forbidden!
-    // state.flights = flights;
+    state.flights = flights;
 
-    return { ...state, flights }
+    //return { ...state, flights }
 
   }),
 

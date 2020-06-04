@@ -26,7 +26,7 @@ import { FlightBookingEffects } from './+state/flight-booking.effects';
       fromFlightBooking.flightBookingFeatureKey, 
       fromFlightBooking.reducer),
 
-    // EffectsModule.forFeature([FlightBookingEffects])
+    EffectsModule.forFeature([FlightBookingEffects])
 
   ],
   declarations: [
